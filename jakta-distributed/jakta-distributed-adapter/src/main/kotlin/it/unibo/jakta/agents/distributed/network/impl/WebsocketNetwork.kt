@@ -1,0 +1,29 @@
+package it.unibo.jakta.agents.distributed.network.impl
+
+import it.unibo.jakta.agents.bdi.actions.effects.BroadcastMessage
+import it.unibo.jakta.agents.bdi.actions.effects.EnvironmentChange
+import it.unibo.jakta.agents.bdi.actions.effects.SendMessage
+import it.unibo.jakta.agents.distributed.RemoteService
+import it.unibo.jakta.agents.distributed.client.Client
+import it.unibo.jakta.agents.distributed.network.Network
+
+class WebsocketNetwork(host: String, port: Int) : Network {
+    private val client: Client = Client.webSocketClient(host, port)
+    override suspend fun subscribe(remoteService: RemoteService) {
+        client.subscribe(remoteService.serviceName)
+    }
+
+    override suspend fun send(event: SendMessage) {
+        client.publish(event.message.from, event)
+    }
+
+    override suspend fun broadcast(event: BroadcastMessage) {
+        client.broadcast(event)
+    }
+
+    override fun getMessagesAsEnvironmentChanges(): Iterable<EnvironmentChange> =
+        client.incomingData().values.asIterable()
+
+    override fun getDisconnections(): Iterable<RemoteService> =
+        client.disconnections().map { RemoteService(it) }
+}

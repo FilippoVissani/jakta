@@ -3,8 +3,12 @@ kotest = "5.8.0"
 kotlin = "1.9.21"
 mockito = "5.8.0"
 tuprolog = "0.31.19"
+ktor = "2.3.7"
+logback-classic = "1.2.11"
+kotlinx = "1.5.2"
 
 [libraries]
+arrow = "io.arrow-kt:arrow-core:1.2.1"
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-stdlib-reflect", version.ref = "kotlin" }
@@ -24,6 +28,22 @@ tuprolog-dsl-core = { module = "it.unibo.tuprolog:dsl-core-jvm", version.ref = "
 tuprolog-dsl-unify = { module = "it.unibo.tuprolog:dsl-unify-jvm", version.ref = "tuprolog" }
 tuprolog-dsl-theory = { module = "it.unibo.tuprolog:dsl-theory-jvm", version.ref = "tuprolog" }
 tuprolog-dsl-solve = { module = "it.unibo.tuprolog:dsl-solve-jvm", version.ref = "tuprolog" }
+ktor-server-core-jvm = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
+ktor-server-netty-jvm = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
+ktor-server-tests-jvm = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor" }
+ktor-server-websockets = { module = "io.ktor:ktor-server-websockets", version.ref = "ktor" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+ktor-server-test-host-jvm = { module = "io.ktor:ktor-server-test-host-jvm", version.ref = "ktor" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-classic" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-core = {module = "io.ktor:ktor-client-core", version.ref = "ktor"}
+ktor-client-cio = {module = "io.ktor:ktor-client-cio", version.ref = "ktor"}
+ktor-client-cio-jvm = {module = "io.ktor:ktor-client-cio-jvm", version.ref = "ktor"}
+ktor-client-logging = {module = "io.ktor:ktor-client-logging-jvm", version.ref = "ktor"}
+ktor-client-websockets = {module = "io.ktor:ktor-client-websockets", version.ref = "ktor"}
+kotlinx-coroutines-core = {module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx"}
 
 [bundles]
 kotlin-testing = [ "kotest-junit5-jvm", "kotest-assertions-core-jvm", "mockito-core" ]
@@ -36,3 +56,5 @@ kotlin-qa = { id = "org.danilopianini.gradle-kotlin-qa", version = "0.57.0" }
 multiJvmTesting = { id = "org.danilopianini.multi-jvm-test-plugin", version = "0.5.7" }
 publishOnCentral =  { id = "org.danilopianini.publish-on-central", version = "5.0.20"}
 taskTree = { id = "com.dorongold.task-tree", version = "2.1.1" }
+ktor = { id = "io.ktor.plugin", version = "2.3.5" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

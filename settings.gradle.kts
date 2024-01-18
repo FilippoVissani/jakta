@@ -15,3 +15,8 @@ rootProject.name = "jakta"
 include(":jakta-state-machine")
 include(":jakta-bdi")
 include(":jakta-dsl")
+include(":jakta-distributed:jakta-distributed-client")
+include(":jakta-distributed:jakta-distributed-broker")
+include(":jakta-distributed:jakta-distributed-common")
+include(":jakta-distributed:jakta-distributed-adapter")
+include(":jakta-distributed:jakta-distributed-examples")
